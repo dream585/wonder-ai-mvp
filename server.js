@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const port = process.env.PORT || 4000;
 
-mongoose.connect('mongosh "mongodb+srv://cluster0.qt3gk4t.mongodb.net/" --apiVersion 1 --username morganweber0316 --password PrhNQixJOm3iGgv4', {
+mongoose.connect('mongodb+srv://morganweber0316:PrhNQixJOm3iGgv4@cluster0.qt3gk4t.mongodb.net/?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
