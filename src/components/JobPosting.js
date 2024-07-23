@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import axios from "../axios/server";
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const JobPosting = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [title, setTitle] = useState("Web Developer");
+  const [description, setDescription] = useState("I want to hire talented web developer who can work on my mvp. You will be able to get a chance a good job. I am look forward to hearing from you.");
+ 
+  const navigate = useNavigate();
+
   const handlePostJob = async (e) => {
     e.preventDefault();
     try {
@@ -12,6 +16,9 @@ const JobPosting = () => {
         toast.success('Job posted successfully!', {
           position: 'top-right',
           autoClose: 1000,
+          onClose: () => {
+            navigate('/job-list')
+          }
         });
       })
       .catch((error) => {
@@ -29,7 +36,7 @@ const JobPosting = () => {
     }
   };
   return (
-    <div className="container pt-6">
+    <div className="container">
       <div className="card border-0 shadow-lg mt-6 p-3">
         <div className="card-body">
           <h2>Post a Job</h2>

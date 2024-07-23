@@ -21,8 +21,7 @@ const Home = () => {
                 Welcome <span class="text-primary">Wonder</span> AI
               </h1>
               <p class="lead mb-4">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              Our unified, AI-powered recruiting platform streamlines B2B recruitment processes, enhancing efficiency and accuracy in talent acquisition.</p>
               <a href="/login" class="btn btn-primary btn-lg m-2">
                 Login
               </a>

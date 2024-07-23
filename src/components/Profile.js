@@ -17,7 +17,7 @@ const Profile = () => {
   };
   return (
     <div className="container pt-6">
-      <div className="card border-0 shadow-lg mt-6 p-3">
+      <div className="card border-0 shadow-lg p-3">
         <div className="card-body">
           <h2>Update Profile</h2>
           <form onSubmit={handleUpdateProfile}>

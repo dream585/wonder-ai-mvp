@@ -20,7 +20,12 @@ const Login = () => {
             position: 'top-right',
             autoClose: 1000,
             onClose: () => {
-              navigate('/profile'); // Redirect to the home page after toast closes
+              if(res.data.email === 'client@test.com'){
+                navigate('/job-posting');
+              }
+              else{
+                navigate('/profile');
+              }
             }
           });
         })

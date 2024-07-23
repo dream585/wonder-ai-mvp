@@ -6,10 +6,19 @@ const path = require('path');
 
 const port = process.env.PORT || 4000;
 
-mongoose.connect('mongodb+srv://morganweber0316:PrhNQixJOm3iGgv4@cluster0.qt3gk4t.mongodb.net/?retryWrites=true&w=majority', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const env = process.env.NODE_ENV || 'production';
+if (env === 'development'){
+  mongoose.connect('mongodb://localhost:27017/wonderai', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}
+else{
+  mongoose.connect('mongodb+srv://morganweber0316:PrhNQixJOm3iGgv4@cluster0.qt3gk4t.mongodb.net/?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}
 
 app.use(express.json());
 
