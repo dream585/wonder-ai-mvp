@@ -23,6 +23,7 @@ app.listen(port, () => {
 const User = require("./models/User");
 const Job = require("./models/Job");
 // Routes
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
