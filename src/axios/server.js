@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const server = axios.create({
-  baseURL: "http://localhost:4000", // Ensure this matches your Flask server URL
+  baseURL: "https://wonder-ai-mvp-server.onrender.com", // Ensure this matches your Flask server URL
 });
 
 export default server;
