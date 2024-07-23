@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const port = process.env.PORT || 4000;
 
-mongoose.connect('mongodb://localhost:27017/wonderai', {
+mongoose.connect('mongodb+srv://SSENO:lebronjansen16TH@cluster0.xvmtnrg.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -22,6 +22,10 @@ app.listen(port, () => {
 const User = require("./models/User");
 const Job = require("./models/Job");
 // Routes
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 app.post("/register", async (req, res) => {
   const { email, password } = req.body;
