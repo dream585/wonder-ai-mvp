@@ -4,12 +4,12 @@ const env = process.env.NODE_ENV || 'production';
 console.log(env);
 
 let server = axios.create({
-  baseURL: "https://wonder-ai-mvp.onrender.com", // Ensure this matches your Flask server URL
+  baseURL: "https://wonder-ai-mvp-server.onrender.com", // Ensure this matches your Flask server URL
 });
 
 if(env === 'production'){
   server = axios.create({
-    baseURL: "https://wonder-ai-mvp.onrender.com", // Ensure this matches your Flask server URL
+    baseURL: "https://wonder-ai-mvp-server.onrender.com", // Ensure this matches your Flask server URL
   });
 }
 else{
