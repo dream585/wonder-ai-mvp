@@ -31,12 +31,46 @@ app.use(cors());
 // Models
 const User = require("./models/User");
 const Job = require("./models/Job");
+const Message = require("./models/Message");
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+app.post('/messages', async(req, res) => {
+  const { from_email, to_email } = req.body;
+  try {
+    const messages = await Message.find({
+      $or: [
+        { from_email: from_email, to_email: to_email },
+        { from_email: to_email, to_email: from_email }
+      ]
+    }).sort({ timestamp: 1 }); // Change to 1 for ascending order
+    res.send(messages);
+  } catch (err) {
+    console.error('Error fetching messages:', err);
+  }
+});
+
+app.post('/message', async(req, res) => {
+  const { from_email, to_email, content } = req.body;
+  const message = new Message({
+    from_email: from_email,
+    to_email: to_email,
+    message: content
+  });
+
+  try {
+    const savedMessage = await message.save();
+    console.log('Message saved:', savedMessage);
+  } catch (err) {
+    console.error('Error saving message:', err);
+  }
+
+  res.send(200)
 });
 
 app.post("/register", async (req, res) => {
