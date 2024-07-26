@@ -14,6 +14,7 @@ const Register = () => {
     e.preventDefault();
     try {
       axios.post("/register", { email, password }).then((res) => {
+        localStorage.setItem('from_email', res.data.email);
         toast.success('User registered successfully!', {
             position: 'top-right',
             autoClose: 1000,

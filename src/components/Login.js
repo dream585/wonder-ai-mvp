@@ -16,6 +16,7 @@ const Login = () => {
       axios
         .post("/login", { email, password })
         .then((res) => {
+          localStorage.setItem('from_email', res.data.email);
           toast.success('Logged In Successfully', {
             position: 'top-right',
             autoClose: 1000,

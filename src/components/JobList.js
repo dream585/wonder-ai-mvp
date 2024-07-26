@@ -1,6 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const JobList = () => {
+    const navigate = useNavigate();
+
+    const handleChatRequest = async (toEmail) => {
+        localStorage.setItem('to_email', toEmail);
+        navigate('/chat');
+      };
   return (
     <div className="container">
       <h2>My Jobs</h2>
@@ -17,7 +24,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                            <a href="#" onClick={handleChatRequest('user1@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
@@ -26,7 +33,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                            <a href="#" onClick={handleChatRequest('user2@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
@@ -35,7 +42,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                            <a href="#" onClick={handleChatRequest('user3@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +63,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                            <a href="#" onClick={handleChatRequest('user1@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
@@ -65,7 +72,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                        <a href="#" onClick={handleChatRequest('user2@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
@@ -74,7 +81,7 @@ const JobList = () => {
                     <div className="d-flex flex-column py-1 justify-content-between">
                         <span className="fw-bolder">Freelancer Lorem</span>
                         <div className="d-flex gap-2">
-                            <a href="/chat">Chat Request</a>
+                        <a href="#" onClick={handleChatRequest('user3@happy.com')}>Chat Request</a>
                         </div>
                     </div>
                 </div>
